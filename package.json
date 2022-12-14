@@ -10,9 +10,9 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vasturiano/react-force-graph.git"
+    "url": "git+https://github.com/Harness10/react-force-graph.git"
   },
-  "homepage": "https://github.com/vasturiano/react-force-graph",
+  "homepage": "https://github.com/Harness10/react-force-graph",
   "keywords": [
     "react",
     "force",
