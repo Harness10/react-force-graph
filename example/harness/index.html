@@ -64,33 +64,47 @@
       .d3Force('collide', d3.forceCollide(13))
       .d3AlphaDecay(0.02)
       .d3VelocityDecay(0.3);
+    
+      
 
-    fetch('//unpkg.com/d3@5.9.7/yarn.lock')
-      .then(r => r.text())
-      .then(text => {
-        const yarnlock = _yarnpkg_lockfile.parse(text);
-        if (yarnlock.type !== 'success') throw new Error('invalid yarn.lock');
-        return yarnlock.object;
-      })
-      .then(yarnlock => {
-        const nodes = [];
-        const links = [];
-
-        Object.entries(yarnlock).forEach(([package, details]) => {
-          nodes.push({
-            package,
-            version: details.version
-          });
-
-          if (details.dependencies) {
-            Object.entries(details.dependencies).forEach(([dep, version]) => {
-              links.push({source: package, target: `${dep}@${version}`});
-            });
-          }
-        });
+    
+      const nodes = [
+      { "package": "react-force-graph", "user": "vasturiano" },
+      { "package": "force-graph", "user": "vasturiano" },
+      { "package": "3d-force-graph", "user": "vasturiano" },
+      { "package": "three-render-objects", "user": "vasturiano" },
+      { "package": "3d-force-graph-vr", "user": "vasturiano" },
+      { "package": "3d-force-graph-ar", "user": "vasturiano" },
+      { "package": "aframe-forcegraph-component", "user": "vasturiano" },
+      { "package": "three-forcegraph", "user": "vasturiano" },
+      { "package": "d3-force-3d", "user": "vasturiano" },
+      { "package": "d3-force", "user": "d3" },
+      { "package": "ngraph", "user": "anvaka" },
+      { "package": "three.js", "user": "mrdoob" },
+      { "package": "aframe", "user": "aframevr" },
+      { "package": "AR.js", "user": "jeromeetienne" }
+    ];
+      const links = [
+      { "target": "force-graph", "source": "react-force-graph" },
+      { "target": "3d-force-graph", "source": "react-force-graph" },
+      { "target": "3d-force-graph-vr", "source": "react-force-graph" },
+      { "target": "3d-force-graph-ar", "source": "react-force-graph" },
+      { "target": "aframe-forcegraph-component", "source": "3d-force-graph-vr" },
+      { "target": "aframe-forcegraph-component", "source": "3d-force-graph-ar" },
+      { "target": "three-forcegraph", "source": "3d-force-graph" },
+      { "target": "three-render-objects", "source": "3d-force-graph" },
+      { "target": "three-forcegraph", "source": "aframe-forcegraph-component" },
+      { "target": "d3-force-3d", "source": "three-forcegraph" },
+      { "target": "ngraph", "source": "three-forcegraph" },
+      { "target": "d3-force", "source": "force-graph" },
+      { "target": "aframe", "source": "3d-force-graph-vr" },
+      { "target": "three.js", "source": "aframe" },
+      { "target": "three.js", "source": "3d-force-graph" },
+      { "target": "AR.js", "source": "3d-force-graph-ar" },
+      { "target": "aframe", "source": "AR.js" }];
 
         graph(document.getElementById('graph'))
           .graphData({ nodes, links });
-      });
+  
   </script>
 </body>
