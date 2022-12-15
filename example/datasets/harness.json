@@ -1,0 +1,33 @@
+{
+  "nodes" : [
+    { "package": "Gulf-Shores-Alabama", "user": "search-geo" },
+    { "package": "google.com", "user": "search-engine" },
+    { "package": "ac-repair", "user": "search-term" },
+    { "package": "organic", "user": "search-source" },
+    { "package": "paid", "user": "search-source" },
+    { "package": "theairmax.com", "user": "search-link" },
+    { "package": "homeadvisor.com", "user": "search-link" },
+    { "package": "hansenair.com", "user": "search-link" },
+    { "package": "yelp.com", "user": "search-link" },
+    { "package": "helpmeanchorair.com", "user": "search-link" },
+    { "package": "comfortservicesal.com", "user": "search-link" },
+    { "package": "fixr.com", "user": "search-link" },
+    { "package": "robertsac.com", "user": "search-link" },
+    { "package": "helpmeanchorair.com", "user": "search-link" },
+  ],
+    "links" : [
+    { "target": "google.com", "source": "Gulf-Shores" },
+    { "target": "ac-repair", "source": "google.com" },
+    { "target": "organic", "source": "ac-repair" },
+    { "target": "paid", "source": "ac-repair" },
+    { "target": "helpmeanchorair.com", "source": "paid" },
+    { "target": "theairmax.com", "source": "organic" },
+    { "target": "homeadvisor.com", "source": "organic" },
+    { "target": "hansenair.com", "source": "organic" },
+    { "target": "yelp.com", "source": "organic" },
+    { "target": "helpmeanchorair.com", "source": "organic" },
+    { "target": "comfortservicesal.com", "source": "organic" },
+    { "target": "fixr.com", "source": "organic" },
+    { "target": "robertsac.com", "source": "organic" },
+    { "target": "helpmeanchorair.com", "source": "organic" }]
+}
