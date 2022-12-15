@@ -1,6 +1,6 @@
 {
   "nodes" : [
-    { "item": "Gulf-Shores-Alabama", "type": "search-geo", "url": "#"}
+    { "item": "Gulf-Shores-Alabama", "type": "search-geo", "url": "#"},
     { "item": "google.com", "type": "search-engine", "url": "#"},
     { "item": "ac-repair", "type": "search-term", "url": "https://www.google.com/search?q=ac+repair&location=Gulf+Shores%2CAlabama%2CUnited+States&uule=w+CAIQICIhR3VsZiBTaG9yZXMsQWxhYmFtYSxVbml0ZWQgU3RhdGVz&gl=us&hl=en&lum_json=1"},
     { "item": "organic", "type": "search-source", "url": "#"  },
@@ -14,7 +14,7 @@
     { "item": "fixr.com", "type": "search-link", "url": "https://www.fixr.com/costs/air-conditioner-repair" },
     { "item": "robertsac.com", "type": "search-link", "url":  "https://www.robertsac.com/contact-roberts-air-conditioning/" },
     { "item": "helpmeanchorair.com", "type": "search-link", "url": "https://helpmeanchorair.com" }
-  ],
+    ],
     "links" : [
     { "target": "Gulf-Shores-Alabama", "source": "google.com" },
     { "target": "ac-repair", "source": "Gulf-Shores-Alabama" },
