@@ -13,7 +13,7 @@
     { "package": "comfortservicesal.com", "user": "search-link" },
     { "package": "fixr.com", "user": "search-link" },
     { "package": "robertsac.com", "user": "search-link" },
-    { "package": "helpmeanchorair.com", "user": "search-link" },
+    { "package": "helpmeanchorair.com", "user": "search-link" }
   ],
     "links" : [
     { "target": "google.com", "source": "Gulf-Shores" },
