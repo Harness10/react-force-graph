@@ -1,19 +1,19 @@
 {
   "nodes" : [
-    { "package": "Gulf-Shores-Alabama", "user": "search-geo" },
-    { "package": "google.com", "user": "search-engine" },
-    { "package": "ac-repair", "user": "search-term" },
-    { "package": "organic", "user": "search-source" },
-    { "package": "paid", "user": "search-source" },
-    { "package": "theairmax.com", "user": "search-link" },
-    { "package": "homeadvisor.com", "user": "search-link" },
-    { "package": "hansenair.com", "user": "search-link" },
-    { "package": "yelp.com", "user": "search-link" },
-    { "package": "helpmeanchorair.com", "user": "search-link" },
-    { "package": "comfortservicesal.com", "user": "search-link" },
-    { "package": "fixr.com", "user": "search-link" },
-    { "package": "robertsac.com", "user": "search-link" },
-    { "package": "helpmeanchorair.com", "user": "search-link" }
+    { "item": "Gulf-Shores-Alabama", "type": "search-geo", "url": "#"}
+    { "item": "google.com", "type": "search-engine", "url": "#"},
+    { "item": "ac-repair", "type": "search-term", "url": "https://www.google.com/search?q=ac+repair&location=Gulf+Shores%2CAlabama%2CUnited+States&uule=w+CAIQICIhR3VsZiBTaG9yZXMsQWxhYmFtYSxVbml0ZWQgU3RhdGVz&gl=us&hl=en&lum_json=1"},
+    { "item": "organic", "type": "search-source", "url": "#"  },
+    { "item": "paid", "type": "search-source", "url": "#" },
+    { "item": "theairmax.com", "type": "search-link", "url":  "https://www.theairmax.com/ac-repair-gulf-shores-al/" },
+    { "item": "homeadvisor.com", "type": "search-link", "url": "https://www.homeadvisor.com/tloc/Gulf-Shores-AL/Central-A-C-Service-or-Repair/" },
+    { "item": "hansenair.com", "type": "search-link", "url": "https://hansenair.com/ac-repair-gulf-shores-al/" },
+    { "item": "yelp.com", "type": "search-link", "url": "https://www.yelp.com/search?cflt=hvac&find_loc=GULF+SHORES%2C+AL" },
+    { "item": "helpmeanchorair.com", "type": "search-link", "url": "https://helpmeanchorair.com/areas-we-serve/gulf-shores/" },
+    { "item": "comfortservicesal.com", "type": "search-link", "url": "https://comfortservicesal.com/ac-repair-gulf-shores-al/" },
+    { "item": "fixr.com", "type": "search-link", "url": "https://www.fixr.com/costs/air-conditioner-repair" },
+    { "item": "robertsac.com", "type": "search-link", "url":  "https://www.robertsac.com/contact-roberts-air-conditioning/" },
+    { "item": "helpmeanchorair.com", "type": "search-link", "url": "https://helpmeanchorair.com" }
   ],
     "links" : [
     { "target": "Gulf-Shores-Alabama", "source": "google.com" },
@@ -28,6 +28,5 @@
     { "target": "helpmeanchorair.com", "source": "organic" },
     { "target": "comfortservicesal.com", "source": "organic" },
     { "target": "fixr.com", "source": "organic" },
-    { "target": "robertsac.com", "source": "organic" },
-    { "target": "helpmeanchorair.com", "source": "organic" }]
+    { "target": "robertsac.com", "source": "organic" }]
 }
