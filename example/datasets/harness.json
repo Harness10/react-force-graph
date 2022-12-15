@@ -16,8 +16,8 @@
     { "package": "helpmeanchorair.com", "user": "search-link" }
   ],
     "links" : [
-    { "target": "google.com", "source": "Gulf-Shores" },
-    { "target": "ac-repair", "source": "google.com" },
+    { "target": "Gulf-Shores", "source": "google.com" },
+    { "target": "ac-repair", "source": "Gulf-Shores" },
     { "target": "organic", "source": "ac-repair" },
     { "target": "paid", "source": "ac-repair" },
     { "target": "helpmeanchorair.com", "source": "paid" },
