@@ -8,7 +8,7 @@
   <script src="//unpkg.com/three"></script>
   <script src="//unpkg.com/three-spritetext"></script>
 
-  <script src="//unpkg.com/react-force-graph-3d"></script>
+  <script src="//unpkg.com/react-force-graph"></script>
   <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
 </head>
 
@@ -16,11 +16,11 @@
   <div id="graph"></div>
 
   <script type="text/jsx">
-    fetch('../datasets/harness.json').then(res => res.json()).then(depData => {
+    fetch('../datasets/forcegraph-dependencies.json').then(res => res.json()).then(depData => {
       const elem = document.getElementById('graph');
 
       ReactDOM.render(
-        <ForceGraph3D
+        <ForceGraph
           graphData={depData}
           dagMode="lr"
           dagLevelDistance={60}
