@@ -25,12 +25,12 @@
           dagMode="lr"
           dagLevelDistance={60}
           nodeId="package"
-          nodeAutoColorBy="user"
+          nodeAutoColorBy="type"
           linkDirectionalParticles={2}
           linkDirectionalParticleWidth={0.5}
-          onNodeClick={node => window.open(`https://github.com/${node.user}/${node.package}`, '_blank')}
+          onNodeClick={node => window.open(`{node.url}`, '_blank')}
           nodeThreeObject={node => {
-            const sprite = new SpriteText(node.package);
+            const sprite = new SpriteText(node.item);
             sprite.color = node.color;
             sprite.textHeight = 5;
             return sprite;
