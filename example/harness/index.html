@@ -64,27 +64,18 @@
       .d3Force('collide', d3.forceCollide(13))
       .d3AlphaDecay(0.02)
       .d3VelocityDecay(0.3);
-    
-      fetch('../datasets/harness.json')
-        .then(res => res.json())
-        .then(depData => {
-          return depData;
-        })
-      .then(depData => {
-        const nodes = [];
-        const links = [];
-
-        Object.entries(depData.nodes).forEach(([x, y]) => {
-          nodes.push({
-            package: x,
-            user: y
-          });
 
 
-          Object.entries(depData.links).forEach(([x, y]) => {
-            links.push({source: y, target: x});
-          });
+    fetch('../datasets/harness.json')
+      .then(r => r.json())
+      .then(text => {
+        const yarnlock = text;
 
+        return yarnlock;
+      })
+      .then(yarnlock => {
+        const nodes = [yarnlock.nodes];
+        const links = [yarnlock.links];
         });
 
         graph(document.getElementById('graph'))
