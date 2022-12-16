@@ -5,109 +5,39 @@
   <script src="//unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
   <script src="//unpkg.com/babel-standalone"></script>
 
-  <script src="//unpkg.com/d3-dsv"></script>
-  <script src="//unpkg.com/dat.gui"></script>
-  <script src="//unpkg.com/d3-quadtree"></script>
-  <script src="//unpkg.com/d3-force"></script>
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/three-spritetext"></script>
 
-  <script src="//unpkg.com/react-force-graph-2d"></script>
-  <!--<script src="../../src/packages/react-force-graph-2d/dist/react-force-graph-2d.js"></script>-->
+  <script src="//unpkg.com/react-force-graph-3d"></script>
+  <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
 </head>
 
 <body>
   <div id="graph"></div>
 
   <script type="text/jsx">
-    const { useState, useEffect, useRef } = React;
+    fetch('../datasets/harness.json').then(res => res.json()).then(depData => {
+      const elem = document.getElementById('graph');
 
-    const useForceUpdate = () => {
-      const setToggle = useState(false)[1];
-      return () => setToggle(b => !b);
-    };
-
-    const ForceTree = ({ data }) => {
-      const fgRef = useRef();
-
-      const [controls] = useState({ 'DAG Orientation': 'td'});
-      const forceUpdate = useForceUpdate();
-
-      useEffect(() => {
-        // add controls GUI
-        const gui = new dat.GUI();
-        gui.add(controls, 'DAG Orientation', ['td', 'bu', 'lr', 'rl', 'radialout', 'radialin', null])
-          .onChange(forceUpdate);
-      }, []);
-
-      useEffect(() => {
-        // add collision force
-        fgRef.current.d3Force('collision', d3.forceCollide(node => Math.sqrt(100 / (node.level + 1))));
-      }, []);
-
-      return <ForceGraph2D
-        ref={fgRef}
-        graphData={data}
-        dagMode={controls['DAG Orientation']}
-        dagLevelDistance={300}
-        backgroundColor="#101020"
-        linkColor={() => 'rgba(255,255,255,0.2)'}
-        nodeRelSize={1}
-        nodeId="path"
-        nodeVal={node => 100 / (node.level + 1)}
-        nodeLabel="path"
-        nodeAutoColorBy="module"
-        linkDirectionalParticles={2}
-        linkDirectionalParticleWidth={2}
-        d3VelocityDecay={0.3}
-      />;
-    };
-
-    fetch('../datasets/harness.json')
-    .then(response => response.json())
-    .then((jsonData) => {
-      // jsonData is parsed json object received from url
-      console.log(jsonData)
-    })
-    .catch((error) => {
-      // handle your errors here
-      console.error(error)
+      ReactDOM.render(
+        <ForceGraph3D
+          graphData={depData}
+          dagMode="lr"
+          dagLevelDistance={60}
+          nodeId="item"
+          nodeAutoColorBy="type"
+          linkDirectionalParticles={2}
+          linkDirectionalParticleWidth={0.5}
+          onNodeClick={node => window.open(`{node.url}`, '_blank')}
+          nodeThreeObject={node => {
+            const sprite = new SpriteText(node.item);
+            sprite.color = node.color;
+            sprite.textHeight = 5;
+            return sprite;
+          }}
+        />,
+        elem
+      );
     });
-    
-    const nodes = [
-    { "item": "gulf-shores-alabama", "type": "search-geo", "url": "#"},
-    { "item": "google.com", "type": "search-engine", "url": "#"},
-    { "item": "ac-repair", "type": "search-term", "url": "https://www.google.com/search?q=ac+repair&location=Gulf+Shores%2CAlabama%2CUnited+States&uule=w+CAIQICIhR3VsZiBTaG9yZXMsQWxhYmFtYSxVbml0ZWQgU3RhdGVz&gl=us&hl=en&lum_json=1"},
-    { "item": "organic", "type": "search-source", "url": "#"  },
-    { "item": "paid", "type": "search-source", "url": "#" },
-    { "item": "theairmax.com", "type": "search-link", "url":  "https://www.theairmax.com/ac-repair-gulf-shores-al/" },
-    { "item": "homeadvisor.com", "type": "search-link", "url": "https://www.homeadvisor.com/tloc/Gulf-Shores-AL/Central-A-C-Service-or-Repair/" },
-    { "item": "hansenair.com", "type": "search-link", "url": "https://hansenair.com/ac-repair-gulf-shores-al/" },
-    { "item": "yelp.com", "type": "search-link", "url": "https://www.yelp.com/search?cflt=hvac&find_loc=GULF+SHORES%2C+AL" },
-    { "item": "helpmeanchorair.com", "type": "search-link", "url": "https://helpmeanchorair.com/areas-we-serve/gulf-shores/" },
-    { "item": "comfortservicesal.com", "type": "search-link", "url": "https://comfortservicesal.com/ac-repair-gulf-shores-al/" },
-    { "item": "fixr.com", "type": "search-link", "url": "https://www.fixr.com/costs/air-conditioner-repair" },
-    { "item": "robertsac.com", "type": "search-link", "url":  "https://www.robertsac.com/contact-roberts-air-conditioning/" }
-    ];
-
-    const links = [
-    { "target": "google.com", "source": "gulf-shores-alabama" }, 
-    { "target": "ac-repair", "source": "google.com" },
-    { "target": "organic", "source": "ac-repair" },
-    { "target": "paid", "source": "ac-repair" },
-    { "target": "helpmeanchorair.com", "source": "paid" },
-    { "target": "theairmax.com", "source": "organic" },
-    { "target": "homeadvisor.com", "source": "organic" },
-    { "target": "hansenair.com", "source": "organic" },
-    { "target": "yelp.com", "source": "organic" },
-    { "target": "helpmeanchorair.com", "source": "organic" },
-    { "target": "comfortservicesal.com", "source": "organic" },
-    { "target": "fixr.com", "source": "organic" },
-    { "target": "robertsac.com", "source": "organic" }
-    ];
-
-        ReactDOM.render(
-          <ForceTree data={{ nodes, links }} />,
-          document.getElementById('graph')
-        );
-      });
   </script>
 </body>
