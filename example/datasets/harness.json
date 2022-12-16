@@ -15,18 +15,18 @@
     { "item": "robertsac.com", "type": "search-link", "url":  "https://www.robertsac.com/contact-roberts-air-conditioning/" }
     ],
     "links" : [
-    { "source": "google.com", "target": "gulf-shores-alabama" }, 
-    { "source": "ac-repair", "target": "google.com" },
-    { "source": "organic", "target": "ac-repair" },
-    { "source": "paid", "target": "ac-repair" },
-    { "source": "helpmeanchorair.com", "target": "paid" },
-    { "source": "theairmax.com", "target": "organic" },
-    { "source": "homeadvisor.com", "target": "organic" },
-    { "source": "hansenair.com", "target": "organic" },
-    { "source": "yelp.com", "target": "organic" },
-    { "source": "helpmeanchorair.com", "target": "organic" },
-    { "source": "comfortservicesal.com", "target": "organic" },
-    { "source": "fixr.com", "target": "organic" },
-    { "source": "robertsac.com", "target": "organic" }
+    { "target": "google.com", "source": "gulf-shores-alabama" }, 
+    { "target": "ac-repair", "source": "google.com" },
+    { "target": "organic", "source": "ac-repair" },
+    { "target": "paid", "source": "ac-repair" },
+    { "target": "helpmeanchorair.com", "source": "paid" },
+    { "target": "theairmax.com", "source": "organic" },
+    { "target": "homeadvisor.com", "source": "organic" },
+    { "target": "hansenair.com", "source": "organic" },
+    { "target": "yelp.com", "source": "organic" },
+    { "target": "helpmeanchorair.com", "source": "organic" },
+    { "target": "comfortservicesal.com", "source": "organic" },
+    { "target": "fixr.com", "source": "organic" },
+    { "target": "robertsac.com", "source": "organic" }
     ]
 }
