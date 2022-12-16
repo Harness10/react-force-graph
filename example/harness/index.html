@@ -70,35 +70,39 @@
     .catch((error) => {
       // handle your errors here
       console.error(error)
-    })
+    });
+    const nodes = [
+    { "item": "gulf-shores-alabama", "type": "search-geo", "url": "#"},
+    { "item": "google.com", "type": "search-engine", "url": "#"},
+    { "item": "ac-repair", "type": "search-term", "url": "https://www.google.com/search?q=ac+repair&location=Gulf+Shores%2CAlabama%2CUnited+States&uule=w+CAIQICIhR3VsZiBTaG9yZXMsQWxhYmFtYSxVbml0ZWQgU3RhdGVz&gl=us&hl=en&lum_json=1"},
+    { "item": "organic", "type": "search-source", "url": "#"  },
+    { "item": "paid", "type": "search-source", "url": "#" },
+    { "item": "theairmax.com", "type": "search-link", "url":  "https://www.theairmax.com/ac-repair-gulf-shores-al/" },
+    { "item": "homeadvisor.com", "type": "search-link", "url": "https://www.homeadvisor.com/tloc/Gulf-Shores-AL/Central-A-C-Service-or-Repair/" },
+    { "item": "hansenair.com", "type": "search-link", "url": "https://hansenair.com/ac-repair-gulf-shores-al/" },
+    { "item": "yelp.com", "type": "search-link", "url": "https://www.yelp.com/search?cflt=hvac&find_loc=GULF+SHORES%2C+AL" },
+    { "item": "helpmeanchorair.com", "type": "search-link", "url": "https://helpmeanchorair.com/areas-we-serve/gulf-shores/" },
+    { "item": "comfortservicesal.com", "type": "search-link", "url": "https://comfortservicesal.com/ac-repair-gulf-shores-al/" },
+    { "item": "fixr.com", "type": "search-link", "url": "https://www.fixr.com/costs/air-conditioner-repair" },
+    { "item": "robertsac.com", "type": "search-link", "url":  "https://www.robertsac.com/contact-roberts-air-conditioning/" }
+    ];
 
-    fetch('../datasets/d3-dependencies.csv')
-      .then(r => r.text())
-      .then(d3.csvParse)
-      .then(data => {
-        const nodes = [], links = [];
-        data.forEach(({ size, path }) => {
-          const levels = path.split('/'),
-            level = levels.length - 1,
-            module = level > 0 ? levels[1] : null,
-            leaf = levels.pop(),
-            parent = levels.join('/');
-
-          const node = {
-            path,
-            leaf,
-            module,
-            size: +size || 20,
-            level
-          };
-
-          nodes.push(node);
-
-          if (parent) {
-            links.push({source: parent, target: path, targetNode: node});
-          }
-        });
-
+    const links = [
+    { "target": "google.com", "source": "gulf-shores-alabama" }, 
+    { "target": "ac-repair", "source": "google.com" },
+    { "target": "organic", "source": "ac-repair" },
+    { "target": "paid", "source": "ac-repair" },
+    { "target": "helpmeanchorair.com", "source": "paid" },
+    { "target": "theairmax.com", "source": "organic" },
+    { "target": "homeadvisor.com", "source": "organic" },
+    { "target": "hansenair.com", "source": "organic" },
+    { "target": "yelp.com", "source": "organic" },
+    { "target": "helpmeanchorair.com", "source": "organic" },
+    { "target": "comfortservicesal.com", "source": "organic" },
+    { "target": "fixr.com", "source": "organic" },
+    { "target": "robertsac.com", "source": "organic" }
+    ];
+    
         ReactDOM.render(
           <ForceTree data={{ nodes, links }} />,
           document.getElementById('graph')
