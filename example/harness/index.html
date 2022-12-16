@@ -71,6 +71,7 @@
       // handle your errors here
       console.error(error)
     });
+    
     const nodes = [
     { "item": "gulf-shores-alabama", "type": "search-geo", "url": "#"},
     { "item": "google.com", "type": "search-engine", "url": "#"},
@@ -102,7 +103,7 @@
     { "target": "fixr.com", "source": "organic" },
     { "target": "robertsac.com", "source": "organic" }
     ];
-    
+
         ReactDOM.render(
           <ForceTree data={{ nodes, links }} />,
           document.getElementById('graph')
