@@ -65,17 +65,20 @@
       .d3AlphaDecay(0.02)
       .d3VelocityDecay(0.3);
 
-
+    const nodes = [];
+    const links = [];
+    
     fetch('../datasets/harness.json')
       .then(r => r.json())
       .then(text => {
+        console.log("text");
+        console.log(text);
         const yarnlock = text;
-
         return yarnlock;
       })
       .then(yarnlock => {
-        const nodes = [yarnlock.nodes];
-        const links = [yarnlock.links];
+        nodes.push(yarnlock.nodes);
+        links.push(yarnlock.links);
         });
 
         graph(document.getElementById('graph'))
