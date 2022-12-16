@@ -17,10 +17,9 @@
       ReactDOM.render(
         <ForceGraph3D
           graphData={data}
-          nodeLabel="id"
-          nodeAutoColorBy="group"
-          linkDirectionalParticles="value"
-          linkDirectionalParticleSpeed={d => d.value * 0.001}
+          nodeLabel="item"
+          nodeAutoColorBy="type"
+
         />,
         document.getElementById('graph')
       );
