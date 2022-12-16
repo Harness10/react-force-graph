@@ -61,7 +61,7 @@
       />;
     };
 
-    fetch('../datasets/d3-dependencies.csv')
+    fetch('../datasets/harness.csv')
       .then(r => r.text())
       .then(d3.csvParse)
       .then(data => {
