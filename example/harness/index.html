@@ -67,19 +67,18 @@
 
     const nodes = [];
     const links = [];
-    
     fetch('../datasets/harness.json')
-      .then(r => r.json())
-      .then(text => {
-        console.log("text");
-        console.log(text);
-        const yarnlock = text;
-        return yarnlock;
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        return json;
       })
-      .then(yarnlock => {
-        nodes.push(yarnlock.nodes);
-        links.push(yarnlock.links);
-        });
+      .then(json => {
+        nodes.push(json.nodes);
+        linkes.push(json.links);
+      })
+
+
 
         graph(document.getElementById('graph'))
           .graphData({ nodes, links });
