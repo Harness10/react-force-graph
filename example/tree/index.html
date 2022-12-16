@@ -28,7 +28,7 @@
     const ForceTree = ({ data }) => {
       const fgRef = useRef();
 
-      const [controls] = useState({ 'DAG Orientation': 'lr'});
+      const [controls] = useState({ 'DAG Orientation': 'td'});
       const forceUpdate = useForceUpdate();
 
       useEffect(() => {
@@ -51,10 +51,10 @@
         backgroundColor="#101020"
         linkColor={() => 'rgba(255,255,255,0.2)'}
         nodeRelSize={1}
-        nodeId="id"
-        nodeVal="type"
-        nodeLabel="item"
-        nodeAutoColorBy="type"
+        nodeId="path"
+        nodeVal={node => 100 / (node.level + 1)}
+        nodeLabel="path"
+        nodeAutoColorBy="module"
         linkDirectionalParticles={2}
         linkDirectionalParticleWidth={2}
         d3VelocityDecay={0.3}
