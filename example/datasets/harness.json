@@ -12,8 +12,8 @@
     { "item": "helpmeanchorair.com", "type": "search-link", "url": "https://helpmeanchorair.com/areas-we-serve/gulf-shores/" },
     { "item": "comfortservicesal.com", "type": "search-link", "url": "https://comfortservicesal.com/ac-repair-gulf-shores-al/" },
     { "item": "fixr.com", "type": "search-link", "url": "https://www.fixr.com/costs/air-conditioner-repair" },
-    { "item": "robertsac.com", "type": "search-link", "url":  "https://www.robertsac.com/contact-roberts-air-conditioning/" },
-    { "item": "helpmeanchorair.com", "type": "search-link", "url": "https://helpmeanchorair.com" }
+    { "item": "robertsac.com", "type": "search-link", "url":  "https://www.robertsac.com/contact-roberts-air-conditioning/" }
+    
     ],
     "links" : [
     { "target": "google.com", "source": "gulf-shores-alabama" }, 
